@@ -27,7 +27,7 @@ var MasterProduceList = [
     price: "$1.99/lb",
     photo: galangal
 
-    },
+  },
   {
     name: "SweetBee Apples",
     price: "$0.60/lb",

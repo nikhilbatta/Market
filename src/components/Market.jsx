@@ -5,10 +5,10 @@ function Market(props) {
   return (
     
     <div className="">
-          <h3>{props.name}</h3>
-          <p>{props.hours}</p>
-        <hr />
-      </div>
+      <h3>{props.name}</h3>
+      <p>{props.hours}</p>
+      <hr />
+    </div>
   );
 }
 
