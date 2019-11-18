@@ -14,12 +14,15 @@ class Produce extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.edit = this.edit.bind(this);
     this.save = this.save.bind(this);
-    }
+  }
   edit(){
     this.setState({editing: true});
 
   }
   save(){
+    var val = this.refs.newText.value;
+    console.log("new comment" + val);
+    this.props.updatedName(this.refs.newText.value, this.props.index);
     this.setState({editing:false});
   }
   handleClick() {
@@ -72,25 +75,25 @@ class Produce extends React.Component {
     };  
     const { colorChange } = cChange;  
     return (
-    <div style={contentStyle}>
+      <div style={contentStyle}>
         <div style={Object.assign({}, galleryStyle, colorChange)} className="card">
-        <div style={productStyle} className="flex-item">
+          <div style={productStyle} className="flex-item">
             <h3>{this.props.name}</h3>
             <p>{this.props.price}</p>
             <p>Quantity: {this.state.count}   <button onClick = {this.handleClick}>Sell</button></p>
             <img style={imageStyle}src={this.props.photo}/>
             <button onClick={this.edit}>Edit!</button>
           </div> 
-      </div>
+        </div>
       </div>
     );
   }
   renderForm() {
     return (
-    <div>
-      <textarea defaultValue={this.props.name}></textarea>
-      <button onClick={this.save}>Save</button>
-    </div>
+      <div>
+        <textarea ref="newText" defaultValue={this.props.name}></textarea>
+        <button onClick={this.save}>Save</button>
+      </div>
     );
   }
     
@@ -111,6 +114,7 @@ Produce.propTypes = {
   price: PropTypes.string,
   photo: PropTypes.string,
   quantity: PropTypes.string,
+  index: PropTypes.number,
 };
 
 export default Produce;
