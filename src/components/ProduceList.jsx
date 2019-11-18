@@ -25,104 +25,124 @@ var MasterProduceList = [
   {
     name: "Galangal",
     price: "$1.99/lb",
-    photo: galangal
+    photo: galangal,
+    quantity: "128"
 
   },
   {
     name: "SweetBee Apples",
     price: "$0.60/lb",
-    photo: apple
+    photo: apple,
+    quantity: "128"
   },
   {
     name: "Tamarind",
     price: "$5.50/lb",
-    photo: tamarind
+    photo: tamarind,
+    quantity: "128"
   },
   {
     name: "Smelly Beans",
     price: "$10.99/lb",
-    photo: stinky
+    photo: stinky,
+    quantity: "128"
   },
   {
     name: "Kale",
     price: "$3.99/bunch",
-    photo: kale
+    photo: kale,
+    quantity: "128"
   },
   {
     name: "Fiddleheads",
     price: "$4.49/lb",
-    photo: fiddle
+    photo: fiddle,
+    quantity: "128"
   },
   {
     name: "Durian",
     price: "$0.99/lb",
-    photo: durian
+    photo: durian,
+    quantity: "128"
   },
   {
     name: "Green Beans",
     price: "$1.99/lb",
-    photo: greenBeans
+    photo: greenBeans,
+    quantity: "128"
 
   },
   {
     name: "Potatoes",
     price: "$0.99/lb",
-    photo: potatoes
+    photo: potatoes,
+    quantity: "128"
   },
   {
     name: "Acorn Squash",
     price: "$1.99/lb",
-    photo: squash
+    photo: squash,
+    quantity: "128"
   },
   {
     name: "Fruit of Hala",
     price: "$10.99/lb",
-    photo: hala
+    photo: hala,
+    quantity: "128"
   },
   {
     name: "Ackee",
     price: "$10.99/lb",
-    photo: ackee
+    photo: ackee,
+    quantity: "128"
   },
   {
     name: "Buddha's Hand",
     price: "$15.99/lb",
-    photo: buddha
+    photo: buddha,
+    quantity: "128"
   },
   {
     name: "Rambutan",
     price: "$7.99/each",
-    photo: rambutan
+    photo: rambutan,
+    quantity: "128"
   },
   {
     name: "Cherimoya",
     price: "$3.99/lb",
-    photo: cherimoya
+    photo: cherimoya,
+    quantity: "128"
   },
   {
     name: "Langsat",
     price: "$2.99/lb",
-    photo: langsat
+    photo: langsat,
+    quantity: "128"
   },
   {
     name: "Dragonfruit",
     price: "$3.99/lb",
-    photo: dragon
+    photo: dragon,
+    quantity: "128"
   },
   {
     name: "?",
     price: "$3,000/each",
-    photo: pot2
+    photo: pot2,
+    quantity: "128"
   },
   {
     name: "Salak",
     price: "$22.99/lb",
-    photo: salak
+    photo: salak,
+    quantity: "128"
   },
   {
     name: "Mangosteen",
     price: "$203.99/lb",
-    photo: mangosteen
+    photo: mangosteen,
+    quantity: "128"
   },
 
 ];
@@ -137,6 +157,8 @@ function ProduceList() {
         <Produce name={produce.name}
           price={produce.price} 
           photo={produce.photo}
+          quantity={produce.quantity}
+          
           key={index}/> 
       )}
     </div>
