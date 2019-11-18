@@ -7,10 +7,20 @@ class Produce extends React.Component {
 
     this.state = {
       count: this.props.quantity,
-      backgroundColor: "black"
+      backgroundColor: "black",
+      editing: false
       
     };
     this.handleClick = this.handleClick.bind(this);
+    this.edit = this.edit.bind(this);
+    this.save = this.save.bind(this);
+    }
+  edit(){
+    this.setState({editing: true});
+
+  }
+  save(){
+    this.setState({editing:false});
   }
   handleClick() {
     this.setState({count: this.state.count-1});
@@ -22,8 +32,7 @@ class Produce extends React.Component {
     }
   }
     
-
-  render() {
+  renderNormal(){
     var imageStyle = {
       width: "150px",
       maxHeight: "150px",
@@ -63,18 +72,37 @@ class Produce extends React.Component {
     };  
     const { colorChange } = cChange;  
     return (
-      
-      <div style={contentStyle}>
+    <div style={contentStyle}>
         <div style={Object.assign({}, galleryStyle, colorChange)} className="card">
-          <div style={productStyle} className="flex-item">
+        <div style={productStyle} className="flex-item">
             <h3>{this.props.name}</h3>
             <p>{this.props.price}</p>
             <p>Quantity: {this.state.count}   <button onClick = {this.handleClick}>Sell</button></p>
             <img style={imageStyle}src={this.props.photo}/>
+            <button onClick={this.edit}>Edit!</button>
           </div> 
-        </div>
+      </div>
       </div>
     );
+  }
+  renderForm() {
+    return (
+    <div>
+      <textarea defaultValue={this.props.name}></textarea>
+      <button onClick={this.save}>Save</button>
+    </div>
+    );
+  }
+    
+  render() {
+    
+    if(this.state.editing){
+      console.log(this.state.editing + "got here");
+      return this.renderForm();
+    } else{
+      return this.renderNormal();
+    }
+  
   }
 }
 
