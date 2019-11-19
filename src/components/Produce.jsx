@@ -6,7 +6,7 @@ class Produce extends React.Component {
     super(props);
 
     this.state = {
-      count: this.props.quantity,
+      // count: this.props.quantity,
       backgroundColor: "black",
       editing: false
       
@@ -26,8 +26,8 @@ class Produce extends React.Component {
     this.setState({editing:false});
   }
   handleClick() {
-    this.setState({count: this.state.count-1});
-    if(this.state.count <= 121){
+    this.props.decrementCount(this.props.index);
+    if(this.props.quantity <= 121){
       this.setState({
         borderColor: "red",
         borderWidth: "10px"
@@ -80,7 +80,7 @@ class Produce extends React.Component {
           <div style={productStyle} className="flex-item">
             <h3>{this.props.name}</h3>
             <p>{this.props.price}</p>
-            <p>Quantity: {this.state.count}   <button onClick = {this.handleClick}>Sell</button></p>
+            <p>Quantity: {this.props.quantity}   <button onClick = {this.handleClick}>Sell</button></p>
             <img style={imageStyle}src={this.props.photo}/>
             <button onClick={this.edit}>Edit!</button>
           </div> 
@@ -113,7 +113,7 @@ Produce.propTypes = {
   name: PropTypes.string,
   price: PropTypes.string,
   photo: PropTypes.string,
-  quantity: PropTypes.string,
+  quantity: PropTypes.number,
   index: PropTypes.number,
 };
 

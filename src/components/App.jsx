@@ -156,6 +156,7 @@ class App extends React.Component {
       ]
     };
     this.handleAddingMasterProduceList = this.handleAddingMasterProduceList.bind(this);
+    this.decrementCount = this.decrementCount.bind(this)
   }
   handleAddingMasterProduceList(newText, i) {
     console.log(this.state.MasterProduceList.name);
@@ -163,6 +164,12 @@ class App extends React.Component {
     arr[i].name = newText;
     this.setState({MasterProduceList: arr });
 
+  }
+  decrementCount(i)
+  {
+    var arr = this.state.MasterProduceList
+    arr[i].quantity = arr[i].quantity - 1
+    this.setState({MasterProduceList: arr});
   }
   render(){
     var siteStyle = {
@@ -176,7 +183,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route  path="/Market" component={MarketList} />
-          <Route path ='/Produce' render={()=><ProduceList masterProduceList={this.state.MasterProduceList}  updatedName={this.handleAddingMasterProduceList}/>} />
+          <Route path ='/Produce' render={()=><ProduceList masterProduceList={this.state.MasterProduceList}  updatedName={this.handleAddingMasterProduceList} decrementCount={this.decrementCount}/>} />
           <Route component={Error404} />
         </Switch>
       </div>

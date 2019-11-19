@@ -22,12 +22,14 @@ function ProduceList(props) {
           index={i}
           key={i}
           
-          updatedName={props.updatedName}/> 
+          updatedName={props.updatedName}
+          decrementCount={props.decrementCount}/> 
       )}
     </div>
   );
 }
 ProduceList.propTypes = {
+  decrementCount: PropTypes.func,
   updatedName: PropTypes.func,
   masterProduceList: PropTypes.array
 
